@@ -1,0 +1,11 @@
+@import 'variables'
+
+@each $size, $value in $font-sizes
+  .fs-#{$size}
+    line-height: $value
+    margin-bottom: 0.5rem
+    +font-size($value)
+
+@each $color, $value in $emotion-colors
+  .text-#{$color}
+    color: $value

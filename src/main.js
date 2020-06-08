@@ -4,6 +4,7 @@ import router from './router'
 import store from './store/items/example'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 
 // 1. For dynamic components - now it is not nessecary to do it manually
 const requireComponent = require.context(
@@ -22,6 +23,7 @@ requireComponent.keys().forEach(fileName => {
   Vue.component(componentName, componentConfig.default || componentConfig)
 })
 
+Vue.use(BootstrapVue);
 Vue.config.productionTip = false
 
 new Vue({
