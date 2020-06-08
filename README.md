@@ -1,4 +1,4 @@
-# vue-frontend
+# schubwerk frontend-vue
 
 ## Project setup
 ```
