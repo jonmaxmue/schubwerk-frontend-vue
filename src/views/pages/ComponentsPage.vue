@@ -5,7 +5,6 @@
 <script>
 import { mapState } from 'vuex'
 
-// Example
 export default {
   props: ['id'],
   created() {
@@ -15,5 +14,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style lang="sass"></style>

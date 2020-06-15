@@ -5,5 +5,8 @@ module.exports = {
         prependData: `@import "@/assets/sass/variables.sass"`
       }
     }
+  },
+  configureWebpack: {
+    plugins: []
   }
 };

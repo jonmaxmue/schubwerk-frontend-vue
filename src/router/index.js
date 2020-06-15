@@ -10,12 +10,12 @@ import LeadsPage from '../views/pages/analyses/LeadsPage.vue'
 Vue.use(VueRouter)
 const routes = [
   {
-    path: '/',
+    path: '/components',
     name: 'components',
     component: ComponentsPage
   },
   {
-    path: '/',
+    path: '/leads',
     name: 'event-list',
     component: LeadsPage
   },
