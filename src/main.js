@@ -23,7 +23,7 @@ requireComponent.keys().forEach(fileName => {
   Vue.component(componentName, componentConfig.default || componentConfig)
 })
 
-Vue.use(BootstrapVue);
+Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 new Vue({

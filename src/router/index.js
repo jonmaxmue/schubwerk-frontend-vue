@@ -18,7 +18,7 @@ const routes = [
     path: '/leads',
     name: 'event-list',
     component: LeadsPage
-  },
+  }
   /*
   {
     path: '/',

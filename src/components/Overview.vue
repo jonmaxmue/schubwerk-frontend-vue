@@ -1,13 +1,13 @@
 <template>
   <b-col>
     <b-row>
-      <main-box-header></main-box-header>
+      <BoxHeader></BoxHeader>
     </b-row>
 
     <b-row>
       <overview-set
+        v-show="overViewSets"
         class="col-sm"
-        v-if="overViewSets"
         v-for="oSet in overViewSets"
         v-bind:key="oSet.title"
         :ref="oSet.title"
@@ -23,7 +23,7 @@
 import BoxHeader from './BoxHeader'
 import OverviewSet from './partials/OverviewSet'
 export default {
-  components: { OverviewSet, MainBoxHeader },
+  components: { OverviewSet, BoxHeader },
   props: ['overViewSets'],
   mixins: []
 }
