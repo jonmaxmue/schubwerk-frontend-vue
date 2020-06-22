@@ -13,9 +13,9 @@ export default {
   components: { Overview },
   props: ['id'],
   created() {
-    this.$store.dispatch('fetchLeadsOverview', this.id)
+    //this.$store.dispatch('fetchLeadsOverview', this.id)
   },
-  computed: mapState(['event'])
+  computed: mapState([''])
 }
 </script>
 

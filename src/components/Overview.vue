@@ -5,14 +5,14 @@
     </b-row>
 
     <b-row>
-      <overview-set
-        v-show="overViewSets"
+      <totals-horizontal
+        v-show="overview"
         class="col-sm"
-        v-for="oSet in overViewSets"
+        v-for="oSet in overview.items"
         v-bind:key="oSet.title"
         :ref="oSet.title"
-        :previousValue="oSet.previousTotal"
-        :value="oSet.total"
+        :previous="oSet.previous"
+        :current="oSet.current"
         :title="oSet.title"
       />
     </b-row>
@@ -21,11 +21,19 @@
 
 <script>
 import BoxHeader from './BoxHeader'
-import OverviewSet from './partials/OverviewSet'
+import TotalsHorizontal from './partials/TotalsHorizontal'
+import { mapState } from 'vuex'
+
 export default {
-  components: { OverviewSet, BoxHeader },
-  props: ['overViewSets'],
-  mixins: []
+  components: { TotalsHorizontal, BoxHeader },
+  props: ['id'],
+  mixins: [],
+  created() {
+    this.$store.dispatch('analyseOverview/fetchOverview', this.id)
+  },
+  computed: mapState({
+    overview: state => state.analyseOverview.overview
+  })
 }
 </script>
 
