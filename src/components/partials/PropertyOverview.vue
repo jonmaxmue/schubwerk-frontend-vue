@@ -20,7 +20,6 @@ import percentageMixin from '../../mixins/percentageMixin'
 
 export default {
   mixins: [emotionMixin, percentageMixin],
-  name: 'TotalsHorizontal',
   props: {
     title: {
       type: String,
@@ -53,11 +52,7 @@ export default {
       return this.getPercentage(this.previous, this.current)
     }
   },
-  watch: {
-    loading(val) {
-      this.$refs.loader.isActive = val
-    }
-  }
+  watch: {}
 }
 </script>
 

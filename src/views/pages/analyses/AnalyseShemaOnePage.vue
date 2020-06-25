@@ -1,17 +1,22 @@
 <template>
   <div>
-    <Overview id="leads"></Overview>
+    <Overview :id="id"></Overview>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 
-import Overview from '../../components/Overview'
+import Overview from '../../../components/Overview'
 
 export default {
   components: { Overview },
-  props: ['id'],
+  props: [],
+  data: function() {
+    return {
+      id: this.$route.name
+    }
+  },
   created() {
     //this.$store.dispatch('fetchLeadsOverview', this.id)
   },

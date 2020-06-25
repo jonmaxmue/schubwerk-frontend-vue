@@ -10,10 +10,10 @@ const apiClient = axios.create({
 })
 
 export default {
-  getOverviews() {
+  getOverviewsItems() {
     return apiClient.get('analyse/overviews/')
   },
-  getOverview(id) {
+  getOverviewItems(id) {
     return apiClient.get('analyse/overview/' + id)
   }
 }

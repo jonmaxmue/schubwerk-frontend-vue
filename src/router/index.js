@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 //import EventList from '../views/items/example/EventList.vue'
 //import EventShow from '../views/items/example/EventShow.vue'
 import ComponentsPage from '../views/pages/ComponentsPage.vue'
-import LeadsPage from '../views/pages/analyses/LeadsPage.vue'
+import AnalyseShemaOnePage from '../views/pages/analyses/AnalyseShemaOnePage.vue'
 
 Vue.use(VueRouter)
 const routes = [
@@ -16,8 +16,13 @@ const routes = [
   },
   {
     path: '/leads',
-    name: 'event-list',
-    component: LeadsPage
+    name: 'leads',
+    component: AnalyseShemaOnePage
+  },
+  {
+    path: '/visits',
+    name: 'visits',
+    component: AnalyseShemaOnePage
   }
   /*
   {

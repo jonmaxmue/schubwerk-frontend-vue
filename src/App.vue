@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <NavBar />
-    <router-view :key="$route.fullPath" />
+
+    <b-container>
+      <router-view :key="$route.fullPath" />
+    </b-container>
   </div>
 </template>
 
@@ -22,6 +25,8 @@ export default {
 @import 'node_modules/bootstrap/scss/bootstrap'
 
 // Theme
-@import 'assets/sass/variables.sass'
 @import 'assets/sass/type.sass'
+
+#app
+  background-color: $color-background
 </style>

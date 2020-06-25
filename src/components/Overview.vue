@@ -1,13 +1,13 @@
 <template>
-  <b-col>
+  <b-col id="overview">
     <b-row>
-      <BoxHeader></BoxHeader>
+      <module-title-options :title="overview.title" :icon="overview.icon" />
     </b-row>
 
     <b-row>
-      <totals-horizontal
+      <property-overview
         v-show="overview"
-        class="col-sm"
+        class="col"
         v-for="oSet in overview.items"
         v-bind:key="oSet.title"
         :ref="oSet.title"
@@ -20,16 +20,22 @@
 </template>
 
 <script>
-import BoxHeader from './BoxHeader'
-import TotalsHorizontal from './partials/TotalsHorizontal'
+import ModuleTitleOptions from './partials/ModuleTitleOptions'
+import PropertyOverview from './partials/PropertyOverview'
 import { mapState } from 'vuex'
 
 export default {
-  components: { TotalsHorizontal, BoxHeader },
-  props: ['id'],
+  components: { ModuleTitleOptions, PropertyOverview },
   mixins: [],
+  props: {
+    id: {
+      type: String,
+      required: true,
+      default: ''
+    }
+  },
   created() {
-    this.$store.dispatch('analyseOverview/fetchOverview', this.id)
+    this.$store.dispatch('analyseOverview/fetchOverviewItems', this.id)
   },
   computed: mapState({
     overview: state => state.analyseOverview.overview
@@ -39,5 +45,5 @@ export default {
 
 <style lang="sass" scoped>
 #overview
-  background-color: $background
+  background-color: map-get($colors, 'white')
 </style>
