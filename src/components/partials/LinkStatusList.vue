@@ -7,7 +7,8 @@
       :href="x.url"
     >
       {{ x.url }}
-      <b-badge variant="primary" pill>{{ x.status }}</b-badge>
+      <b-badge v-if="statusType == 'percentage'" variant="primary" pill>{{ x.status | percentage }}</b-badge>
+      <b-badge v-else variant="primary" pill>{{ x.status }}</b-badge>
     </b-list-group-item>
   </b-list-group>
 </template>
@@ -19,8 +20,12 @@ export default {
   mixins: [emotionMixin, percentageMixin],
   props: {
     list: {
+      type: Array,
+      required: true
+    },
+    statusType: {
       type: String,
-      required: true,
+      required: false,
       default: ''
     }
   },
@@ -32,5 +37,5 @@ export default {
 
 <style lang="sass" scoped>
 .sw-item:nth-child(2)
-    background-color: map-get($colors, 'light-gray')
+  background-color: map-get($colors, 'light-gray')
 </style>

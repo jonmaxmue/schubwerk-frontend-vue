@@ -1,34 +1,34 @@
 <template>
-  <b-row>
-    <b-col id="real-time-activity">
-      <b-row>
-        <module-title-options :title="realTimeActivity.title" :icon="realTimeActivity.icon" />
-      </b-row>
-
+  <module-wrapper title="Echtzeit" :icon="realTimeActivity.icon">
+    <b-col>
       <b-row>
         <b-col class="text-center">
-          <h3>Status</h3>
-          <b>{{ status }}</b>
+          <h3 class="fs-2">{{ realTimeActivity.title }}</h3>
+          <span>
+            <b
+              v-if="realTimeActivity.itemType == 'percentage'"
+              class="fs-10"
+            >{{ average | percentage }}</b>
+            <b v-else class="fs-10">{{ total }}</b>
+          </span>
         </b-col>
       </b-row>
-
       <b-row>
         <b-col class="text-center">
-          <h3>Seiten</h3>
-          <link-list :list="realTimeActivity.items" />
+          <link-status-list :list="realTimeActivity.items" :statusType="realTimeActivity.itemType" />
         </b-col>
       </b-row>
     </b-col>
-  </b-row>
+  </module-wrapper>
 </template>
 
 <script>
-import ModuleTitleOptions from './partials/ModuleTitleOptions'
-import LinkList from './partials/LinkList'
+import ModuleWrapper from './partials/ModuleWrapper'
+import LinkStatusList from './partials/LinkStatusList'
 import { mapState, mapGetters } from 'vuex'
 
 export default {
-  components: { ModuleTitleOptions, LinkList },
+  components: { ModuleWrapper, LinkStatusList },
   mixins: [],
   props: {
     id: {
@@ -48,12 +48,9 @@ export default {
       realTimeActivity: state => state.analyseRealTimeActivity.realTimeActivity,
       status: state => state.analyseRealTimeActivity.getters.status
     }),
-    ...mapGetters('analyseRealTimeActivity', ['status'])
+    ...mapGetters('analyseRealTimeActivity', ['total', 'average'])
   }
 }
 </script>
 
-<style lang="sass" scoped>
-#real-time-activity
-  background-color: map-get($colors, 'white')
-</style>
+<style lang="sass" scoped></style>

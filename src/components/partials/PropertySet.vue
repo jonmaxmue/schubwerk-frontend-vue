@@ -1,8 +1,6 @@
 <template>
-  <div class="overview-set p-3">
-    <h3 class="fs-2">
-      <b>{{ title }}</b>
-    </h3>
+  <div class="property-set">
+    <h3 class="fs-2">{{ title }}</h3>
     <span class="fs-9">{{ current }}{{ suffix }}</span>
     <span :class="['fs-2', 'percent', 'text-' + getEmotion(percentage, 0, 0)]">
       <b-icon
@@ -57,7 +55,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.overview-set
+.property-set
   display: flex
   flex-flow: column
   align-items: center

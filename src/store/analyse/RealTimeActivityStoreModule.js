@@ -7,31 +7,31 @@ const realTimeActivityStoreModule = {
     realTimeActivities: [
       {
         id: 'leads',
-        title: 'Echtzeit',
+        title: 'Absprungsrate',
         icon: 'alarm',
-        itemType: 'percent',
+        itemType: 'percentage',
         items: [
           {
-            status: 42,
+            status: 0.42,
             url: 'https://schubwerk.de/leistungen/'
           },
           {
-            status: 12,
+            status: 0.12,
             url: 'https://schubwerk.de/produkte/'
           },
           {
-            status: 54,
+            status: 0.54,
             url: 'https://schubwerk.de/ueber-uns/'
           },
           {
-            status: 3,
+            status: 0.3,
             url: 'https://schubwerk.de/kontakt/'
           }
         ]
       },
       {
         id: 'visits',
-        title: 'Echtzeit',
+        title: 'Besucher',
         icon: 'alarm',
         itemType: '',
         items: [
@@ -87,12 +87,19 @@ const realTimeActivityStoreModule = {
         realTimeActivity => realTimeActivity.id === id
       )
     },
-    status: state => {
+    total: state => {
       var sum = 0
       state.realTimeActivity.items.forEach(item => {
         sum += item.status
       })
       return sum
+    },
+    average: state => {
+      var sum = 0
+      state.realTimeActivity.items.forEach(item => {
+        sum += item.status
+      })
+      return sum / state.realTimeActivity.items.length
     }
   }
 }
