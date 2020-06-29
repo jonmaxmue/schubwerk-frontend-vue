@@ -1,8 +1,8 @@
 <template>
   <div class="overview-set p-3">
-    <h1 class="fs-2">
+    <h3 class="fs-2">
       <b>{{ title }}</b>
-    </h1>
+    </h3>
     <span class="fs-9">{{ current }}{{ suffix }}</span>
     <span :class="['fs-2', 'percent', 'text-' + getEmotion(percentage, 0, 0)]">
       <b-icon

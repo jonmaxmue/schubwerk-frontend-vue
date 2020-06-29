@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Overview :id="id"></Overview>
+    <b-row>
+      <Overview :id="id" class="mb-5" />
+    </b-row>
   </div>
 </template>
 

@@ -1,6 +1,14 @@
 <template>
   <div>
-    <Overview id="leads"></Overview>
+    <b-row>
+      <Overview id="leads" class="mb-5" />
+    </b-row>
+
+    <b-row>
+      <b-col md="5" offset-md="7">
+        <real-time-activity id="leads" />
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -8,9 +16,10 @@
 import { mapState } from 'vuex'
 
 import Overview from '../../components/Overview'
+import RealTimeActivity from '../../components/RealTimeActivity'
 
 export default {
-  components: { Overview },
+  components: { Overview, RealTimeActivity },
   props: ['id'],
   created() {
     //this.$store.dispatch('fetchLeadsOverview', this.id)

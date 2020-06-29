@@ -37,9 +37,11 @@ export default {
   created() {
     this.$store.dispatch('analyseOverview/fetchOverviewItems', this.id)
   },
-  computed: mapState({
-    overview: state => state.analyseOverview.overview
-  })
+  computed: {
+    ...mapState({
+      overview: state => state.analyseOverview.overview
+    })
+  }
 }
 </script>
 
