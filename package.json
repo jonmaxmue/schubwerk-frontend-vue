@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "styleguide": "vue-cli-service styleguidist",
+    "styleguide:build": "vue-cli-service styleguidist:build"
   },
   "dependencies": {
     "@amcharts/amcharts4": "^4.9.26",
@@ -38,6 +40,7 @@
     "rfs": "^9.0.3",
     "sass": "^1.26.8",
     "sass-loader": "^8.0.2",
+    "vue-cli-plugin-styleguidist": "~4.26.0",
     "vue-template-compiler": "^2.6.11"
   }
 }

@@ -7,7 +7,9 @@
       :href="x.url"
     >
       {{ x.url }}
-      <b-badge v-if="statusType == 'percentage'" variant="primary" pill>{{ x.status | percentage }}</b-badge>
+      <b-badge v-if="statusType == 'percentage'" variant="primary" pill>
+        {{ x.status | percentage }}
+      </b-badge>
       <b-badge v-else variant="primary" pill>{{ x.status }}</b-badge>
     </b-list-group-item>
   </b-list-group>
